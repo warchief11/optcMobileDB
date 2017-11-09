@@ -6,7 +6,7 @@ import { Observable } from "rxjs/Rx";
 
 @Injectable()
 export class UnitService implements OnInit {
-    private units: Unit[];
+    public units: Unit[];
     constructor(
         private http: Http
     ) {
@@ -46,7 +46,7 @@ export class UnitService implements OnInit {
         var unit = new Unit();
         if (this.units) {
             var randomIndex = Math.floor(Math.random() * this.units.length);
-            return this.getUnit(randomIndex);
+            return this.getUnit(randomIndex);        
 
         }
         // this.http.get('./app/shared/data/units.json').map(res => {
@@ -60,7 +60,7 @@ export class UnitService implements OnInit {
         return unit;
     };
 
-    private getAllUnits = function () {
+    public getAllUnits = function () {
         return this.http.get('assets/data/units.json').subscribe(res => {
             console.log("testing log sucess");
             var data = res.json();

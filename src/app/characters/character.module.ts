@@ -1,17 +1,24 @@
-import { UnitService } from './../shared/services/unit.service';
+import { IonicModule } from 'ionic-angular';
+//import { UnitService } from './../shared/services/unit.service';
 import { NgModule } from '@angular/core';
 
 //import components
 
-import { UnitDetailComponent } from './unitDetail.component';
+import { CharacterDetailComponent } from './characterDetail.component';
+import { CharacterListComponent } from './characterList.component';
 
 @NgModule({
     declarations:[
-        UnitDetailComponent
+        CharacterDetailComponent,
+        CharacterListComponent
     ],
-    imports: [ ],
+    imports: [ IonicModule.forRoot(CharacterListComponent) ],
     exports:[
-        UnitDetailComponent
+        CharacterDetailComponent,
+        CharacterListComponent
+    ],
+    entryComponents:[
+        CharacterDetailComponent
     ],
     providers:[
         

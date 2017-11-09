@@ -2,22 +2,26 @@
 import { UnitService } from './../shared/services/unit.service';
 import { Component, OnInit } from '@angular/core';
 import { Unit } from '../shared';
+import { NavParams } from 'ionic-angular';
 
 @Component({
     selector: 'unit-detail',    
-    templateUrl : './unitDetail.component.html'
+    templateUrl : './characterDetail.component.html'
 })
-export class UnitDetailComponent implements OnInit {       
+export class CharacterDetailComponent implements OnInit {       
     unit: Unit = new Unit();
     unitId : number;
     constructor(
-        private unitService : UnitService
+        private unitService : UnitService,
+        params: NavParams
     ){
-        this.unitId = 1448;
+        this.unit = params.get('character');
     };
 
     ngOnInit(): void {
-        this.unit = this.unitService.getSampleUnit();
+        if(this.unit){
+            this.unit = this.unitService.getUnit(this.unit.unitId);            
+        }
     }
 
     public fetchNextChar(){

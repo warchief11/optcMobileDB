@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="io.optc.MobileDb" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>OptcMobileDb</name>
+    <description>App for optc-db data browsing.</description>
+    <author email="nardeep.chaudhary@gmail.com">Nardeep Singh</author>
     <content original-src="index.html" src="http://10.2.0.157:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
