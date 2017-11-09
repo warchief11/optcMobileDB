@@ -1,4 +1,10 @@
-<p> {{unit.name}}</p>
-<img src="{{unit.imgThumbNail}}" width="30px">
-<input type="text" placeholder="Enter character id:" [value]="unitId" (input)="unitId=$event.target.value"/>
-<button (click)="fetchChar()">Show Character</button>
+<ion-header>
+   <ion-buttons start>
+      <button ion-button (click)="dismiss()">Close</button>
+   </ion-buttons>
+   <ion-title>{{unit.name}}</ion-title>
+</ion-header>
+<ion-content>
+   <img src="{{unit.imgThumbNail}}" width="20px">
+   <input type="text" placeholder="Enter character id:" [value]="unitId" (input)="unitId=$event.target.value"/>
+</ion-content>

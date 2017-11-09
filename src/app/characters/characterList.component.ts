@@ -3,6 +3,8 @@ import { UnitService } from './../shared/services/unit.service';
 import { Unit } from './../shared/models/unit';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+
 @Component({
    selector:"character-list",
    templateUrl : "./characterList.component.html"
@@ -10,16 +12,18 @@ import { ModalController } from 'ionic-angular';
 export class CharacterListComponent implements OnInit {
  
    characters:Unit[]
+   characterListAsync: Observable<Unit[]>;
+   
    constructor(private unitService:UnitService, private modalCtrl:ModalController){
 
    }
 
    ngOnInit(): void {
-      this.characters = this.unitService.units;
+      this.getAllUnits();
    }
 
    getAllUnits = function(){
-      this.characters = this.unitService.units;
+      this.characterListAsync = this.unitService.getAllUnits();
    }
 
    public showCharDetails = function(character: Unit){      

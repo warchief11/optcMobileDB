@@ -2,7 +2,7 @@
 import { UnitService } from './../shared/services/unit.service';
 import { Component, OnInit } from '@angular/core';
 import { Unit } from '../shared';
-import { NavParams } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 
 @Component({
     selector: 'unit-detail',    
@@ -13,6 +13,7 @@ export class CharacterDetailComponent implements OnInit {
     unitId : number;
     constructor(
         private unitService : UnitService,
+        private viewCtrl : ViewController,
         params: NavParams
     ){
         this.unit = params.get('character');
@@ -24,11 +25,15 @@ export class CharacterDetailComponent implements OnInit {
         }
     }
 
-    public fetchNextChar(){
-        this.unit = this.unitService.getSampleUnit();
-    }
+    // public fetchNextChar(){
+    //     this.unit = this.unitService.getSampleUnit();
+    // }
 
-    public fetchChar(){
-        this.unit = this.unitService.getUnit(this.unitId);
+    // public fetchChar(){
+    //     this.unit = this.unitService.getUnit(this.unitId);
+    // }
+
+    public dismiss(){
+        this.viewCtrl.dismiss();
     }
 };

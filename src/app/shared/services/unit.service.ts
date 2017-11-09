@@ -2,6 +2,7 @@ import { Injectable, OnInit } from "@angular/core";
 import { Unit } from "../index";
 import { Http } from "@angular/http";
 import { Observable } from "rxjs/Rx";
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -60,12 +61,14 @@ export class UnitService implements OnInit {
         return unit;
     };
 
-    public getAllUnits = function () {
-        return this.http.get('assets/data/units.json').subscribe(res => {
-            console.log("testing log sucess");
-            var data = res.json();
-            this.units = this.parseUnits(data, true);
-        });
+    public getAllUnits = function (): Observable<Unit[]> {
+        var unitsObservable = this.http.get('assets/data/units.json');
+        //  unitsObservable.subscribe(res => {
+        //     console.log("testing log sucess");
+        //     var data = res.json();
+        //     this.units = this.parseUnits(data, true);
+        // });
+        return unitsObservable.map(response => response.json().map(item => this.parseUnit(item)));
     };
 
     private parseUnit = function (element: any[], id): Unit {
